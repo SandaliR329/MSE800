@@ -1,0 +1,8 @@
+Customer Scenario
+
+The customer first registers in the Money Exchange System and logs into the application using authentication. After logging in, the customer can view current exchange rates, perform money exchange transactions, and view transaction history. During a transaction, the system validates the transaction details before processing. If the transaction is invalid or canceled, the transaction may be declined.
+
+
+Admin Scenario
+
+The admin manages and updates currency exchange rates in the system. The admin can also view transaction details to monitor customer transactions and ensure proper transaction management.
