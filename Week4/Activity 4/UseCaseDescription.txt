@@ -1,0 +1,16 @@
+Use Case Diagram 1: Customer & Account Management
+
+This diagram represents the functionalities related to managing customers, accounts, and currency information in the Money Exchange System. The main purpose of this module is to allow customers to access account-related services while enabling administrators to manage customer and account records efficiently.
+
+Key Actors:
+Customer – Can register, view account details, link to accounts, and view currency information.
+Admin – Responsible for adding, updating, and deleting customers, creating and updating accounts, and managing currency information.
+
+
+Use Case Diagram 2: Transaction & Exchange Management
+
+This diagram illustrates the operations related to financial transactions and currency exchange processes within the system. Its purpose is to support secure transaction handling and currency conversion activities between customers and the organization.
+
+Key Actors:
+Customer – Can perform transactions, view transaction history, and request currency exchange services.
+Admin – Manages transactions, approves exchange requests, updates exchange rates, and views exchange-related reports.
