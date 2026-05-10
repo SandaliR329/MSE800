@@ -1,0 +1,4 @@
+The Clinic System is designed to manage patient appointments, doctor schedules, payments, prescriptions, and medication orders.
+Patients can register, log into the system, book appointments with doctors, make payments, and order medications. 
+Doctors can manage their schedules and generate prescriptions for patients after appointments. 
+Also handles medicine orders and related payment processing.
