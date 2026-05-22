@@ -1,0 +1,3 @@
+Yes, the code contains both classes and subclasses.
+The Factory class is the superclass (abstract class), and DogFactory, CatFactory, and AnimalFactory are subclasses that inherit from it.
+Same as, the Animals abstract class is the superclass, while Dog and Cat are subclasses that implement the run() method.
