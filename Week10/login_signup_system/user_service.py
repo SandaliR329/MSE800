@@ -8,38 +8,41 @@ class UserService:
     def __init__(self):
         self.database = Database()
 
-    def signup(self, full_name, date_of_birth, email, password):
+    def signup(self, full_name, date_of_birth, username, password):
         password_hash = AuthService.hash_password(password)
-        user = User(full_name, date_of_birth, email, password_hash)
+        user = User(full_name, date_of_birth, username, password_hash)
 
         try:
             with self.database.connect() as conn:
                 cursor = conn.cursor()
+
                 cursor.execute("""
                     INSERT INTO users 
-                    (full_name, date_of_birth, email, password_hash)
+                    (full_name, date_of_birth, username, password_hash)
                     VALUES (?, ?, ?, ?)
                 """, (
                     user.full_name,
                     user.date_of_birth,
-                    user.email,
+                    user.username,
                     user.password_hash
                 ))
+
                 conn.commit()
 
             print("Signup successful!")
 
         except sqlite3.IntegrityError:
-            print("Email already exists.")
+            print("Username already exists.")
 
-    def login(self, email, password):
+    def login(self, username, password):
         with self.database.connect() as conn:
             cursor = conn.cursor()
+
             cursor.execute("""
-                SELECT full_name, date_of_birth, email, password_hash
+                SELECT full_name, date_of_birth, username, password_hash
                 FROM users
-                WHERE email = ?
-            """, (email,))
+                WHERE username = ?
+            """, (username,))
 
             user = cursor.fetchone()
 
@@ -55,25 +58,27 @@ class UserService:
         else:
             print("Incorrect password.")
 
-    def forgot_password(self, email, new_password):
+    def forgot_password(self, username, new_password):
         new_password_hash = AuthService.hash_password(new_password)
 
         with self.database.connect() as conn:
             cursor = conn.cursor()
+
             cursor.execute("""
                 UPDATE users
                 SET password_hash = ?
-                WHERE email = ?
-            """, (new_password_hash, email))
+                WHERE username = ?
+            """, (new_password_hash, username))
+
             conn.commit()
 
             if cursor.rowcount > 0:
                 print("Password reset successful!")
             else:
-                print("Email not found.")
+                print("Username not found.")
 
     def display_profile(self, user):
         print("\n--- User Profile ---")
         print("Full Name:", user[0])
         print("Date of Birth:", user[1])
-        print("Email:", user[2])
+        print("Username:", user[2])

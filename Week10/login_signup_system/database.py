@@ -12,13 +12,15 @@ class Database:
     def create_table(self):
         with self.connect() as conn:
             cursor = conn.cursor()
+
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS users (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     full_name TEXT NOT NULL,
                     date_of_birth TEXT NOT NULL,
-                    email TEXT UNIQUE NOT NULL,
+                    username TEXT UNIQUE NOT NULL,
                     password_hash TEXT NOT NULL
                 )
             """)
+
             conn.commit()
