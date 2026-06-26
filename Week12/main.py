@@ -1,32 +1,45 @@
-from flask import Flask
+from flask import Flask, render_template_string, request
+import os
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return """
+UPLOAD_FOLDER = "static/uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+@app.route("/", methods=["GET", "POST"])
+def upload_image():
+    image_path = None
+
+    if request.method == "POST":
+        image = request.files["image"]
+
+        if image.filename != "":
+            image_path = os.path.join(UPLOAD_FOLDER, image.filename)
+            image.save(image_path)
+
+    return render_template_string("""
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Flask CSS Activity</title>
+        <title>Upload and Display Image</title>
     </head>
+    <body>
+        <h1>Upload and Display an Image</h1>
 
-    <body style="background-color: green; color: red;">
+        <form method="POST" enctype="multipart/form-data">
+            <label>Select an image:</label>
+            <input type="file" name="image" accept="image/*" required>
+            <br><br>
+            <button type="submit">Upload Image</button>
+        </form>
 
-        <h1>Welcome to Flask!</h1>
-
-        <p>This is my first HTML page using Flask.</p>
-
-        <p>
-            Learn Flask by visiting the
-            <a href="https://flask.palletsprojects.com/en/stable/quickstart/" target="_blank">
-                Flask Quickstart Documentation
-            </a>.
-        </p>
-
+        {% if image_path %}
+            <h2>Uploaded Image:</h2>
+            <img src="{{ image_path }}" width="400">
+        {% endif %}
     </body>
     </html>
-    """
+    """, image_path=image_path)
 
 if __name__ == "__main__":
     app.run(debug=True)
