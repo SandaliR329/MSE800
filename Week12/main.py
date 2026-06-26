@@ -8,9 +8,11 @@ def home():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Flask HTML Activity</title>
+        <title>Flask CSS Activity</title>
     </head>
-    <body>
+
+    <body style="background-color: green; color: red;">
+
         <h1>Welcome to Flask!</h1>
 
         <p>This is my first HTML page using Flask.</p>
@@ -21,6 +23,7 @@ def home():
                 Flask Quickstart Documentation
             </a>.
         </p>
+
     </body>
     </html>
     """
