@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>BMI Calculator</h1>
+
+        <form method="POST">
+
+            <table>
+                <tr>
+                    <td class="label">Weight in kilograms</td>
+                    <td>
+                        <input type="number" name="weight" step="0.01"
+                               placeholder="Enter your weight (kg)" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">Height in meters</td>
+                    <td>
+                        <input type="number" name="height" step="0.01"
+                               placeholder="Enter your height (m)" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input class="calculate-btn"
+                               type="submit"
+                               value="Calculate BMI">
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+
+    </div>
+
+    <div class="result-card" style="display: {{display}};">
+
+        <h2>BMI Calculator Result</h2>
+
+        <div class="result-row">
+            <div class="result-label">Your BMI is</div>
+            <div class="result-value">{{bmi}}</div>
+        </div>
+
+        <div class="result-row">
+            <div class="result-label">You are Classified as</div>
+            <div class="result-value">{{category}}</div>
+        </div>
+
+        <div class="button-area">
+            <a href="/" class="again-btn">Calculate Again</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

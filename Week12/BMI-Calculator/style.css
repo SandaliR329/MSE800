@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+    background: #f5f7fa;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width: 1000px;
+    margin: 30px auto;
+}
+
+.card{
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+h1{
+    text-align: center;
+    font-size: 46px;
+    color: #1b2a4e;
+    margin-bottom: 25px;
+}
+
+table{
+    width: 100%;
+    border-spacing: 0 25px;
+}
+
+.label{
+    width: 35%;
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type=number]{
+    width: 100%;
+    height: 55px;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    font-size: 22px;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+.calculate-btn{
+    background: #FFE89A;
+    border: none;
+    padding: 16px 35px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+
+.calculate-btn:hover{
+    background: #FFD95E;
+}
+
+.result-card{
+    margin-top: 30px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    border-top: 6px solid #6cc36c;
+}
+
+h2{
+    text-align: center;
+    font-size: 35px;
+    color: #206020;
+    margin-bottom: 30px;
+}
+
+.result-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.result-label{
+    font-size: 26px;
+    color: #444;
+    font-weight: bold;
+}
+
+.result-value{
+    width: 350px;
+    text-align: center;
+    background: #eefbea;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 30px;
+    color: #1c7b1c;
+    font-weight: bold;
+}
+
+.button-area{
+    text-align: center;
+    margin-top: 45px;
+}
+
+.again-btn{
+    background: #D7F8C8;
+    color: #0d6d0d;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+}
+
+.again-btn:hover{
+    background: #BDF0A8;
+}
